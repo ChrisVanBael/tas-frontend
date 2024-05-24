@@ -1,0 +1,20 @@
+services:
+
+  tas-frontend:
+    build: 
+      context: .
+      dockerfile: Dockerfile.staging
+    container_name: tas-frontend
+    environment:
+      - TAS_BFF_URL=https://tas.frontend.staging.polteq-testing.com
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.tas-frontend.rule=Host(`tas.frontend.staging.polteq-testing.com`)
+      - traefik.http.routers.tas-frontend.tls=true
+      - traefik.http.routers.tas-frontend.tls.certresolver=letsencrypt
+    networks:
+        - web
+
+networks:
+  web:
+    external: true

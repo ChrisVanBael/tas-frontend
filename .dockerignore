@@ -1,0 +1,5 @@
+node_modules/
+
+playwright-e2e-ct-tests/
+playwright-report/
+test-results/

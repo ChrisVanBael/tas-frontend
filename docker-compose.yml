@@ -1,0 +1,9 @@
+services:
+
+  tas-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tas-frontend
+    ports:
+      - 8080:80
